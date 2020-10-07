@@ -1,7 +1,0 @@
-kind: Secret
-apiVersion: v1
-metadata:
-  name: mysecret
-  creationTimestamp:
-data:
-  WebHookSecretKey: c2VjcmV0dmFsdWUx

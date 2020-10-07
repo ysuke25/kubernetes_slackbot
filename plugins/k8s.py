@@ -114,7 +114,7 @@ def mention_kubectl(message, arg1, arg2):
 @respond_to('(.*)(削除)')
 def mention_kubectl(message, arg1, arg2):
     try:
-        cmd = 'kubectl {} {}'.format("delete ",arg1)
+        cmd = 'kubectl {} {}'.format("delete pod",arg1)
         completed_process = subprocess.run(cmd.split(),
                                            check=True,
                                            capture_output=True)
