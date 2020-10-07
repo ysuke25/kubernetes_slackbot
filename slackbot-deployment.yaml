@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: slackbot
+  name: slackbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slackbot
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: slackbot
+    spec:
+      containers:
+      - name: slackbot
+        image: sotoiwa540/slackbot:1.3
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: slackbot-secret
