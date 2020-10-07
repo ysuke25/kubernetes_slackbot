@@ -3,24 +3,24 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: slackbot
-  name: slackbot
+    app: slackbot-kyube
+  name: slackbot-kyube
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: slackbot
+      app: slackbot-kyube
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: slackbot
+        app: slackbot-kyube
     spec:
       containers:
-      - name: slackbot
-        image: sotoiwa540/slackbot:1.3
+      - name: slackbot-kyube
+        image: ysuke25r/kyube:1.0
         imagePullPolicy: Always
         envFrom:
         - secretRef:
-            name: slackbot-secret
+            name: slackbot-secret-kyube

@@ -30,6 +30,10 @@ def mention_help(message):
         {
             "title": "[namespace]の[pod_name]を削除して",
             "value": "クラスター上のPodを削除してくれます！" 
+        },
+        {
+            "title": "ポッド表示して",
+            "value": "Podの一覧を取得" 
         }
     ]
 

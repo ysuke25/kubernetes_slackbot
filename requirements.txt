@@ -1,6 +1,4 @@
 bs4
-flickrapi
-gokulang
 kubernetes
 requests
 slackbot
