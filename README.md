@@ -33,11 +33,6 @@ python run.py
 
 イメージをビルドする。
 
-```shell
-docker build -t sotoiwa540/slackbot:1.1 .
-docker push sotoiwa540/slackbot:1.1
-```
-
 Podをデプロイする専用のNamespaceを作成する。
 
 ```shell
