@@ -109,3 +109,29 @@ def mention_kubectl(message, arg1, arg2):
         ]
     }]
     message.reply_webapi('', json.dumps(attachments))
+
+#Podの削除2
+@respond_to('(.*)(削除)')
+def mention_kubectl(message, arg1, arg2):
+    try:
+        cmd = 'kubectl {} {}'.format("delete ",arg1)
+        completed_process = subprocess.run(cmd.split(),
+                                           check=True,
+                                           capture_output=True)
+        result_str = completed_process.stdout.decode('utf-8') + completed_process.stderr.decode('utf-8')
+        color = 'good'
+
+    except subprocess.CalledProcessError as e:
+        result_str = e.stdout.decode('utf-8') + e.stderr.decode('utf-8')
+        color = 'warning'
+
+    msg = '```\n{}```'.format(result_str)
+
+    attachments = [{
+        'text': msg,
+        'color': color,
+        'mrkdwn_in': [
+            'text'
+        ]
+    }]
+    message.reply_webapi('', json.dumps(attachments))

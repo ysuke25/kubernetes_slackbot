@@ -32,8 +32,8 @@ def mention_help(message):
             "value": "クラスター上のPodを削除してくれます！" 
         },
         {
-            "title": "ポッド表示して",
-            "value": "Podの一覧を取得" 
+            "title": "pod or ポッド表示して",
+            "value": "Podの一覧を取得(PodをデプロイしているNamespaceで取得)" 
         }
     ]
 

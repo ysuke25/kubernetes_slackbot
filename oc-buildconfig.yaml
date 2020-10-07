@@ -1,0 +1,25 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: slackbot-kyube
+  labels:
+    build: slackbot-kyube
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'slackbot-kyube:latest'
+  resources: {}
+  strategy:
+    type: Docker
+    dockerStrategy:
+        dockerfilePath: ./Dockerfile
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/ysuke25/kubernetes_slackbot.git'
+      ref: main
+  triggers:
+    - type: GitHub
+
+
