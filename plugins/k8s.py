@@ -137,7 +137,7 @@ def mention_kubectl(message, arg1, arg2):
     message.reply_webapi('', json.dumps(attachments))
 
 # Podに負荷を掛ける
-@respond_to('(.*)に(負荷を掛けて|負荷試験開始して|負荷)')
+@respond_to('(.*)に(負荷をかけて|負荷試験開始して|負荷)')
 def menthon_pod(message, arg1, arg2):
     # Kubernetes上で動いているかを環境変数から判断する
     if os.getenv('KUBERNETES_SERVICE_HOST'):
@@ -147,7 +147,7 @@ def menthon_pod(message, arg1, arg2):
         # $HOME/.kube/config から読み込む
         config.load_kube_config()
 
-    podname = arg2
+    podname = arg1
     namespace = "yy-demo-project"
 
     v1 = client.CoreV1Api()
