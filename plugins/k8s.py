@@ -144,6 +144,7 @@ def menthon_pod(message, arg1, arg2):
     if os.getenv('KUBERNETES_SERVICE_HOST'):
         # ServiceAccountの権限で実行する
         config.load_incluster_config()
+        configuration.assert_hostname = False
     else:
         # $HOME/.kube/config から読み込む
         config.load_kube_config()
