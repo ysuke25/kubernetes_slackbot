@@ -155,7 +155,8 @@ def menthon_pod(message, arg1, arg2):
     exec_command = [
         'yes',
         '>>',
-        '/dev/null']
+        '/dev/null',
+        '&']
     respons = stream(v1.connect_get_namespaced_pod_exec, podname, namespace,
               command=exec_command,
               stderr=True, stdin=False,
@@ -170,4 +171,4 @@ def menthon_pod(message, arg1, arg2):
             'text'
         ]
     }]
-    message.reply_webapi('', json.dumps(attachments))
+    message.reply_webapi('yesコマンドでCPUに負荷かけてるよ', json.dumps(attachments))
