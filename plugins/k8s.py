@@ -5,6 +5,7 @@ import re
 import subprocess
 
 from kubernetes import client, config
+from kubernetes.stream import stream
 from slackbot.bot import listen_to
 from slackbot.bot import respond_to
 
@@ -155,10 +156,10 @@ def menthon_pod(message, arg1, arg2):
         'yes',
         '>>',
         '/dev/null']
-    respons = v1.connect_get_namespaced_pod_exec(podname, namespace, 
-                    command=exec_command, 
-                    stderr=True, stdin=False, 
-                    stdout=True, tty=False)
+    respons = stream(v1.connect_get_namespaced_pod_exec, podname, namespace,
+              command=exec_command,
+              stderr=True, stdin=False,
+              stdout=True, tty=False)
 
     msg = '```\n{}```'.format(respons)
 
