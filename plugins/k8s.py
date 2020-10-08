@@ -138,7 +138,7 @@ def mention_kubectl(message, arg1, arg2):
 
 # Podに負荷を掛ける
 @respond_to('(.*)に(負荷を掛けて|負荷試験開始して|負荷)')
-def menthon_pod(message, arg1, arg2:
+def menthon_pod(message, arg1, arg2):
     # Kubernetes上で動いているかを環境変数から判断する
     if os.getenv('KUBERNETES_SERVICE_HOST'):
         # ServiceAccountの権限で実行する
@@ -159,3 +159,14 @@ def menthon_pod(message, arg1, arg2:
                   command=exec_command,
                   stderr=True, stdin=False,
                   stdout=True, tty=False)
+
+    msg = '```\n{}```'.format(respons)
+
+    attachments = [{
+        'text': msg,
+        'color': color,
+        'mrkdwn_in': [
+            'text'
+        ]
+    }]
+    message.reply_webapi('', json.dumps(attachments))
