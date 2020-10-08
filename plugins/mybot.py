@@ -20,7 +20,7 @@ def mention_help(message):
 
     fields = [
         {
-            "title": "kubectl hogehoge",
+            "title": "kubectl [kubectl_command]",
             "value": "クラスター上で任意のkubectlコマンドが実行できます！"
         },
         {
@@ -29,6 +29,10 @@ def mention_help(message):
         },
         {
             "title": "[namespace]の[pod_name]を削除して",
+            "value": "クラスター上のPodを削除してくれます！" 
+        },
+        {
+            "title": "[pod_name]削除",
             "value": "クラスター上のPodを削除してくれます！" 
         },
         {

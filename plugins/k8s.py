@@ -135,3 +135,27 @@ def mention_kubectl(message, arg1, arg2):
         ]
     }]
     message.reply_webapi('', json.dumps(attachments))
+
+# Podに負荷を掛ける
+@respond_to('(.*)に(負荷を掛けて|負荷試験開始して|負荷)')
+def menthon_pod(message, arg1, arg2:
+    # Kubernetes上で動いているかを環境変数から判断する
+    if os.getenv('KUBERNETES_SERVICE_HOST'):
+        # ServiceAccountの権限で実行する
+        config.load_incluster_config()
+    else:
+        # $HOME/.kube/config から読み込む
+        config.load_kube_config()
+
+    podname = arg2
+    namespace = "yy-demo-project"
+
+    v1 = client.CoreV1Api()
+    exec_command = [
+        'yes',
+        '>>',
+        '/dev/null']
+    respons = v1.connect_get_namespaced_pod_exec,(podname , namespace,
+                  command=exec_command,
+                  stderr=True, stdin=False,
+                  stdout=True, tty=False)
