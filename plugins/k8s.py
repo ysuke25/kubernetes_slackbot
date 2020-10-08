@@ -155,10 +155,10 @@ def menthon_pod(message, arg1, arg2):
         'yes',
         '>>',
         '/dev/null']
-    respons = v1.connect_get_namespaced_pod_exec,(podname , namespace,
-                  command=exec_command,
-                  stderr=True, stdin=False,
-                  stdout=True, tty=False)
+    respons = v1.connect_get_namespaced_pod_exec(podname, namespace, 
+                    command=exec_command, 
+                    stderr=True, stdin=False, 
+                    stdout=True, tty=False)
 
     msg = '```\n{}```'.format(respons)
 
