@@ -164,7 +164,7 @@ def menthon_pod(message, arg1, arg2):
 
     attachments = [{
         'text': msg,
-        'color': color,
+        'color': "good",
         'mrkdwn_in': [
             'text'
         ]
