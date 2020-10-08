@@ -138,6 +138,7 @@ def mention_kubectl(message, arg1, arg2):
     }]
     message.reply_webapi('', json.dumps(attachments))
 
+'''
 # Podに負荷を掛ける
 @respond_to('(.*)に(負荷をかけて|負荷試験開始して|負荷)')
 def menthon_pod(message, arg1, arg2):
@@ -174,3 +175,4 @@ def menthon_pod(message, arg1, arg2):
         ]
     }]
     message.reply_webapi('yesコマンドでCPUに負荷かけてるよ', json.dumps(attachments))
+    '''
