@@ -6,6 +6,7 @@ import subprocess
 
 from kubernetes import client, config
 from kubernetes.stream import stream
+from kubernetes.client import configuration 
 from slackbot.bot import listen_to
 from slackbot.bot import respond_to
 
