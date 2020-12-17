@@ -24,10 +24,6 @@ def mention_help(message):
             "value": "クラスター上で任意のkubectlコマンドが実行できます！"
         },
         {
-            "title": "Pod大丈夫？",
-            "value": "クラスター上のPodが正常か教えてくれます！"
-        },
-        {
             "title": "[namespace]の[pod_name]を削除して",
             "value": "クラスター上のPodを削除してくれます！" 
         },
