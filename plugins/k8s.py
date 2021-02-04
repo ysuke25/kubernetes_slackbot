@@ -29,7 +29,7 @@ def mention_to_me(message):
 '''
 #oc コマンドの実行
 @respond_to(r'^oc (.*)')
-def mention_kubectl(message, kubectl_args):
+def mention_oc(message, kubectl_args):
     try:
         cmd = 'oc {}'.format(kubectl_args)
         completed_process = subprocess.run(cmd.split(),
