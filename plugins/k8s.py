@@ -27,6 +27,23 @@ def mention_to_me(message):
     }]
     message.send_webapi('', json.dumps(attachments))
 '''
+#oc コマンドの実行
+@respond_to(r'^oc (.*)')
+def mention_kubectl(message, kubectl_args):
+    try:
+        cmd = 'oc {}'.format(kubectl_args)
+        completed_process = subprocess.run(cmd.split(),
+                                           check=True,
+                                           capture_output=True)
+        result_str = completed_process.stdout.decode('utf-8') + completed_process.stderr.decode('utf-8')
+        color = 'good'
+
+    except subprocess.CalledProcessError as e:
+        result_str = e.stdout.decode('utf-8') + e.stderr.decode('utf-8')
+        color = 'warning'
+
+    msg = '```\n{}```'.format(result_str)
+
 # kubectlコマンドを実行する
 @respond_to(r'^kubectl (.*)')
 def mention_kubectl(message, kubectl_args):
